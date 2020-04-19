@@ -76,3 +76,7 @@ Visit [cryptomark](http://markanthonyuy.com/cryptomark/)
 
 - Built with [Reactjs](https://facebook.github.io/react/)
 - API by [Coingecko](https://www.coingecko.com/en/api)
+
+### LICENSE
+
+MIT
