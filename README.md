@@ -1,6 +1,6 @@
 # Cryptomark
 
-Compare Cryptocurrency Realtime
+Compare Cryptocurrencies Realtime
 
 ### Visit [cryptomark](http://cryptomark.now.sh/)
 
