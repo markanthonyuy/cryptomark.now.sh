@@ -9,6 +9,7 @@ First Web app build with reactjs! Loving it so far and still learning.
 #### 3.0.0
 
 - Migrate to new API coingecko
+- Migrate URL from [https://markanthonyuy.com/cryptomark/](https://markanthonyuy.com/cryptomark/) to [https://cryptomark.now.sh/](https://cryptomark.now.sh/)
 
 #### 2.1.2
 

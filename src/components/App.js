@@ -89,6 +89,7 @@ class App extends Component {
           checked: false,
         },
       ],
+      backToTopVisibility: false,
     }
 
     this.time = ''
@@ -138,24 +139,22 @@ class App extends Component {
     let currency = this.state.currency
     let count = this.state.count
 
+    this.setState({ loader: true, backToTopVisibility: false })
+
     if (nextPage) {
       if (page + 1 >= 20) return
       if (page >= 0) {
         page = page + 1
-        this.setState({ page: page, loader: true })
+        this.setState({ page: page })
       }
-
-      //paging = `&start=${page * count + 1}`
     }
 
     if (prevPage) {
       if (page <= 0) return
       if (page <= 20) {
         page = page - 1
-        this.setState({ page: page, loader: true })
+        this.setState({ page: page })
       }
-
-      //paging = `&start=${page * count + 1}`
     }
 
     let url = `${this.apiUrl}coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${count}&sparkline=false&page=${page}`
@@ -167,18 +166,14 @@ class App extends Component {
           this.timer()
         }
         this.displayCrypto(res.data, currency)
-        // this.setState({
-        //   total: 100,
-        // })
-        // this.setState({
-        //   totalPage: 20,
-        // })
+
         // Get total page
         const totalPage = this.state.total / count
         const cleanTotalPage =
           totalPage % 1 ? parseInt(totalPage + 1, 10) : totalPage
         this.setState({
           totalPage: cleanTotalPage,
+          backToTopVisibility: true,
         })
         // if (clearTime) {
         //   clearInterval(this.time)
@@ -190,6 +185,9 @@ class App extends Component {
       })
       .catch((err) => {
         console.log(err)
+        this.setState({
+          backToTopVisibility: false,
+        })
       })
   }
 
@@ -229,7 +227,7 @@ class App extends Component {
   render() {
     return (
       <main>
-        <Header tagline="Compare Cryptocurrencies"></Header>
+        <Header tagline="Compare Cryptocurrencies Realtime"></Header>
         <div className="section">
           <div className="container" id="main">
             <AdditionalData
@@ -319,7 +317,10 @@ class App extends Component {
             </p>
           </div>
         </div>
-        <Footer count={this.state.count}></Footer>
+        <Footer
+          count={this.state.count}
+          visibility={this.state.backToTopVisibility}
+        ></Footer>
       </main>
     )
   }

@@ -5,7 +5,7 @@ const Header = (props) => {
     <section className="hero is-primary">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title main-title">
+          <h1 className="title main-title is-spaced">
             <a href="/">Cryptomark</a>
           </h1>
           <h2 className="subtitle is-6">{props.tagline}</h2>

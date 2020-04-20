@@ -10,6 +10,10 @@
   text-align: center !important;
 }
 
+.no-margin {
+  margin: 0 !important;
+}
+
 .LazyLoad {
   display: inline-block;
 }
@@ -49,7 +53,7 @@
 }
 
 .table td img {
-  vertical-align: -2px;
+  vertical-align: -4px;
   margin-right: 5px;
 }
 
@@ -180,18 +184,26 @@ sup {
   margin-top: 6px;
 }
 
+.footer {
+  padding: 30px 0;
+}
+
 .footer > .container {
   position: relative;
 }
 
 .footer > .container > .back-to-top {
   position: absolute;
-  top: -68px;
+  top: -50px;
   right: 0;
 }
 
 .dropdown-settings {
   margin-top: 5px;
+}
+
+.main-title {
+  margin-bottom: 7px !important;
 }
 
 .main-title > a {
