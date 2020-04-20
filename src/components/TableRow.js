@@ -12,14 +12,14 @@ class TableRow extends Component {
     this.state = {
       activeRow: false,
       currency: props.currency,
-      cryptocurrencies: props.cyrptocurrency,
+      cryptocurrency: props.cyrptocurrency,
     }
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       currency: nextProps.currency,
-      cryptocurrencies: nextProps.cyrptocurrency,
+      cryptocurrency: nextProps.cyrptocurrency,
     })
   }
 
@@ -143,8 +143,13 @@ class TableRow extends Component {
   }
 
   render() {
-    const data = this.state.cryptocurrencies,
+    const data = this.state.cryptocurrency,
       cur = this.state.currency
+
+    // let sparkline = data.sparkline_in_7d.price.map((d) => ({
+    //   name: 'amount',
+    //   value: d,
+    // }))
 
     const optionalData = this.props.optionalData
       .filter((oData) => oData.checked) // Filter checked optionaData
