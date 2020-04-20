@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Header from './Header'
-import Loader from './Loader'
-import AdditionalData from './AdditionalData'
-import CountDropdown from './CountDropdown'
-import Table from './Table'
-import Footer from './Footer'
+import {
+  Header,
+  Footer,
+  Loader,
+  Table,
+  CountDropdown,
+  AdditionalData,
+} from './components/'
 
 class App extends Component {
   constructor() {
