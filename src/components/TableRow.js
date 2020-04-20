@@ -110,7 +110,7 @@ class TableRow extends Component {
     const optionalData = data
     return (
       <td key={key}>
-        {this.formatCurrency(optionalData)}
+        {this.formatCurrency(optionalData) || '------------------'}
         <sup>{symbol.length ? ' ' + symbol : ''}</sup>
       </td>
     )
