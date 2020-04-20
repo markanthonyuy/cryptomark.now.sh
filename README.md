@@ -80,4 +80,4 @@ Visit [cryptomark](http://markanthonyuy.com/cryptomark/)
 
 ### LICENSE
 
-MIT
+© Mark Anthony Uy under MIT
