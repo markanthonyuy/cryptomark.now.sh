@@ -73,11 +73,11 @@ First Web app build with reactjs! Loving it so far and still learning.
 - Add "Add/Remmove Optional Data"
 - Initial Feature
 
-Visit [cryptomark](http://markanthonyuy.com/cryptomark/)
+Visit [cryptomark](http://cryptomark.now.sh/)
 
 - Built with [Reactjs](https://facebook.github.io/react/)
 - API by [Coingecko](https://www.coingecko.com/en/api)
 
 ### LICENSE
 
-© Mark Anthony Uy under MIT
+© [Mark Anthony Uy](http://markanthonyuy.com/) under MIT
