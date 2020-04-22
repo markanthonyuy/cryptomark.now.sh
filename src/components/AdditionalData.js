@@ -21,7 +21,6 @@ class AdditionalData extends Component {
   render() {
     return (
       <div className="settings">
-        <p>Add/Remove Optional Data</p>
         <div className="notification">
           <div className="columns is-mobile">
             {

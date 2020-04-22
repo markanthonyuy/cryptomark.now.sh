@@ -1,3 +1,7 @@
+.section {
+  padding-top: 0;
+}
+
 .align-right {
   text-align: right !important;
 }
@@ -213,6 +217,25 @@ sup {
 .currency-label {
   margin-top: 5px;
   margin-right: 10px;
+}
+
+.share {
+  margin: 10px auto;
+}
+
+.share > p {
+  margin-top: 11px;
+}
+
+.share > div > a {
+  padding: 5px 5px 0;
+  display: inline-block;
+}
+
+.share > div > span {
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: 7px;
 }
 
 @media (max-width: 900px) {

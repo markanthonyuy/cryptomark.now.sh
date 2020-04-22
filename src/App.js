@@ -8,6 +8,12 @@ import {
   CountDropdown,
   AdditionalData,
 } from './components/'
+import { TW, FB } from './images'
+
+const URL_TW_SHARE =
+  'https://twitter.com/intent/tweet?&text=Compare+Bitcoin,+Ethereum,+Bitcoin+Cash,+Litecoin+and+other+cyrptocurrencies+prices+and+other+data+in+the+market+in+real+time+%23cryptocurrency+%23bitcoin+%23btc+%23eth+%23btc&url=https%3A%2F%2Fcryptomark.now.sh'
+const URL_FB_SHARE =
+  'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcryptomark.now.sh'
 
 class App extends Component {
   constructor() {
@@ -230,6 +236,19 @@ class App extends Component {
     return (
       <main>
         <Header tagline="Compare Cryptocurrencies Realtime"></Header>
+        <div className="share container is-clearfix">
+          <p className="is-pulled-left">Add/Remove Optional Data</p>
+
+          <div className="is-pulled-right">
+            <span>Spread the word</span>
+            <a href={URL_FB_SHARE} target="_blank">
+              <img src={FB} alt="" width="30" />
+            </a>
+            <a href={URL_TW_SHARE} target="_blank">
+              <img src={TW} alt="" width="30" />
+            </a>
+          </div>
+        </div>
         <div className="section">
           <div className="container" id="main">
             <AdditionalData
