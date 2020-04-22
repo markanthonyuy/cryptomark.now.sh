@@ -331,7 +331,7 @@ class App extends Component {
             ></Table>
             <p className="info">* Multi-currency support.</p>
             <p className="info">
-              * Updates every 5 mins due to API limitation.
+              * Automatically updates data every 5 mins.
             </p>
             <p className="info">
               * Sortable base on the displayed Cryptocurrencies.
