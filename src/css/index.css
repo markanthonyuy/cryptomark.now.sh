@@ -235,7 +235,13 @@ sup {
 .share > div > span {
   margin-right: 5px;
   display: inline-block;
-  vertical-align: 7px;
+  vertical-align: 8px;
+}
+
+@media (max-width: 1067px) {
+  .share {
+    padding: 0 25px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -261,6 +267,10 @@ sup {
   .table td {
     padding: 0 3px;
     font-size: 12px;
+  }
+
+  .share > div > span {
+    vertical-align: 11px;
   }
 }
 
