@@ -342,7 +342,7 @@ class Table extends Component {
                 onClick={() => {
                   this.sortClick('rank')
                 }}
-                className="align-center sortable"
+                className="align-left sortable"
               >
                 Rank <span className={this.addSortClassName('rank')}></span>
               </th>
@@ -409,6 +409,7 @@ class Table extends Component {
               </th> */}
               {optionalData}
               <th className="align-right">Last Updated</th>
+              <th className="align-right">Share</th>
             </tr>
           </thead>
           <tfoot>
@@ -417,7 +418,7 @@ class Table extends Component {
                 onClick={() => {
                   this.sortClick('rank')
                 }}
-                className="align-center sortable"
+                className="align-left sortable"
               >
                 Rank <span className={this.addSortClassName('rank')}></span>
               </th>
@@ -484,6 +485,7 @@ class Table extends Component {
               </th> */}
               {optionalData}
               <th className="align-right">Last Updated</th>
+              <th className="align-right">Share</th>
             </tr>
           </tfoot>
           <tbody>

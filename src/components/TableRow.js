@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LazyLoad from 'react-lazy-load'
 import TimeAgo from 'timeago-react'
+import { TW } from '../images'
 
 class TableRow extends Component {
   constructor(props) {
@@ -8,6 +9,8 @@ class TableRow extends Component {
     this.toggleRowClass = this.toggleRowClass.bind(this)
     this.renderOptional = this.renderOptional.bind(this)
     this.checkKeyCurrency = this.checkKeyCurrency.bind(this)
+    this.tweetMe = this.tweetMe.bind(this)
+    this.encodeHashtag = this.encodeHashtag.bind(this)
 
     this.state = {
       activeRow: false,
@@ -21,6 +24,18 @@ class TableRow extends Component {
       currency: nextProps.currency,
       cryptocurrency: nextProps.cyrptocurrency,
     })
+  }
+
+  encodeHashtag(str) {
+    return str.replace(/#/g, '%23')
+  }
+
+  tweetMe(crypto = '') {
+    let str = encodeURI(
+      `https://twitter.com/intent/tweet?&text=${crypto} #cryptocurrency #crypto #cryptocurrencies #blockchain #money #investment #fintech #altcoin #altcoins #blockchaintechnology #cryptotrading #entrepreneur #investing #cryptonews via&url=https://cryptomark.now.sh`
+    )
+
+    return this.encodeHashtag(str)
   }
 
   formatDate(timestamp) {
@@ -166,6 +181,11 @@ class TableRow extends Component {
 
         return this.renderOptional(data[oData.name], key)
       })
+    const formatedPriceToday = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: this.state.currency,
+    }).format(data.current_price)
+
     // const change1H = data.quotes[cur].percent_change_1h ? `${data.quotes[cur].percent_change_1h} %` : '-----------';
     const change1D = data.price_change_percentage_24h
       ? `${data.price_change_percentage_24h} %`
@@ -173,23 +193,24 @@ class TableRow extends Component {
     const change1DHigh = data.high_24h ? data.high_24h : '-----------'
     // const change1W = data.quotes[cur].percent_change_7d ? `${data.quotes[cur].percent_change_7d} %` : '-----------';
 
+    const tweetText = `${
+      data.name
+    } is ${this.checkChange(
+      data.price_change_percentage_24h
+    )} by ${change1D.replace('-', '').replace(' ', '')} Price is ${formatedPriceToday} #${data.name.toUpperCase()} #${data.symbol.toUpperCase()}`
+
     return (
       <tr
         className={this.state.activeRow ? 'is-selected' : ''}
         onClick={this.toggleRowClass}
       >
-        <td className="align-center">{data.market_cap_rank}</td>
+        <td className="align-left">{data.market_cap_rank}</td>
         <td>
           {this.renderIconUrl(data.image, data.name)}
           {data.name}
         </td>
         <td>{data.symbol.toUpperCase()}</td>
-        <td>
-          {new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: this.state.currency,
-          }).format(data.current_price)}
-        </td>
+        <td>{formatedPriceToday}</td>
         {/* <td className={this.checkChange(data.quotes[cur].percent_change_1h)}>{change1H}</td> */}
         <td className={this.checkChange(data.high_24h)}>{change1DHigh}</td>
         <td className={this.checkChange(data.price_change_percentage_24h)}>
@@ -199,6 +220,11 @@ class TableRow extends Component {
         {optionalData}
         <td className="align-right">
           <TimeAgo datetime={data.last_updated} live={false} />
+        </td>
+        <td className="align-right">
+          <a href={this.tweetMe(tweetText)} target="blank">
+            <img src={TW} alt="Twitter" width="20" />
+          </a>
         </td>
       </tr>
     )
