@@ -146,11 +146,10 @@ class App extends Component {
     // let paging = `&start=${page * count + 1}`
     let currency = this.state.currency
     let count = this.state.count
-
-    this.setState({ loader: true, backToTopVisibility: false })
+    let totalPage = this.state.totalPage
 
     if (nextPage) {
-      if (page + 1 >= 20) return
+      if (page + 1 >= totalPage) return
       if (page >= 0) {
         page = page + 1
         this.setState({ page: page })
@@ -158,12 +157,13 @@ class App extends Component {
     }
 
     if (prevPage) {
-      if (page <= 0) return
-      if (page <= 20) {
+      if (page <= 1) return
+      if (page <= totalPage) {
         page = page - 1
         this.setState({ page: page })
       }
     }
+    this.setState({ loader: true, backToTopVisibility: false })
 
     let url = `${this.apiUrl}coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${count}&sparkline=false&page=${page}`
 
@@ -330,9 +330,7 @@ class App extends Component {
               currency={this.state.currency}
             ></Table>
             <p className="info">* Multi-currency support.</p>
-            <p className="info">
-              * Automatically updates data every 5 mins.
-            </p>
+            <p className="info">* Automatically updates data every 5 mins.</p>
             <p className="info">
               * Sortable base on the displayed Cryptocurrencies.
             </p>
