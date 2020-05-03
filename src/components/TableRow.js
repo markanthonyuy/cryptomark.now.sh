@@ -184,20 +184,30 @@ class TableRow extends Component {
     const formatedPriceToday = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: this.state.currency,
+      minimumFractionDigits: 6,
     }).format(data.current_price)
+
+    const formatedHighPriceToday = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: this.state.currency,
+      minimumFractionDigits: 6,
+    }).format(data.high_24h)
 
     // const change1H = data.quotes[cur].percent_change_1h ? `${data.quotes[cur].percent_change_1h} %` : '-----------';
     const change1D = data.price_change_percentage_24h
       ? `${data.price_change_percentage_24h} %`
       : '-----------'
-    const change1DHigh = data.high_24h ? data.high_24h : '-----------'
+    const change1DHigh = data.high_24h ? formatedHighPriceToday : '-----------'
     // const change1W = data.quotes[cur].percent_change_7d ? `${data.quotes[cur].percent_change_7d} %` : '-----------';
 
-    const tweetText = `${
-      data.name
-    } is ${this.checkChange(
+    const tweetText = `${data.name} is ${this.checkChange(
       data.price_change_percentage_24h
-    )} by ${change1D.replace('-', '').replace(' ', '')} Price is ${formatedPriceToday} #${data.name.toUpperCase()} #${data.symbol.toUpperCase()}`
+    )} by ${change1D
+      .replace('-', '')
+      .replace(
+        ' ',
+        ''
+      )} Price is ${formatedPriceToday} #${data.name.toUpperCase()} #${data.symbol.toUpperCase()}`
 
     return (
       <tr
