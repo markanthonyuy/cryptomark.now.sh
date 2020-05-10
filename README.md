@@ -9,7 +9,7 @@ Compare Cryptocurrencies Realtime
 
 ### LICENSE
 
-© [Mark Anthony Uy](http://markanthonyuy.com/) under MIT
+© 2020 [Mark Anthony Uy](http://markanthonyuy.com/) under [MIT](https://github.com/markanthonyuy/cryptomark.now.sh/blob/master/LICENSE)
 
 ### Changelog
 
